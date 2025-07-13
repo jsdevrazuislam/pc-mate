@@ -1,26 +1,187 @@
 @import "tailwindcss";
 
-:root {
-  --background: #ffffff;
-  --foreground: #171717;
-}
+@custom-variant dark (&:where(.dark, .dark *));
 
 @theme inline {
   --color-background: var(--background);
   --color-foreground: var(--foreground);
-  --font-sans: var(--font-geist-sans);
-  --font-mono: var(--font-geist-mono);
+  --color-primary: var(--primary);
+  --color-primary-foreground: var(--primary-foreground);
+  --color-secondary: var(--secondary);
+  --color-secondary-foreground: var(--secondary-foreground);
+  --color-accent: var(--accent);
+  --color-accent-foreground: var(--accent-foreground);
+  --color-muted: var(--muted);
+  --color-muted-foreground: var(--muted-foreground);
+  --color-destructive: var(--destructive);
+  --color-destructive-foreground: var(--destructive-foreground);
+  --color-card: var(--card);
+  --color-card-foreground: var(--card-foreground);
+  --color-popover: var(--popover);
+  --color-popover-foreground: var(--popover-foreground);
+  --color-border: var(--border);
+  --color-input: var(--input);
+  --color-ring: var(--ring);
+  /*
+  ==============================================================================
+  | 6. Typography System                                                       |
+  | Defines all text styles for the application.                               |
+  ==============================================================================
+  */
+
+  /* -- Display -- */
+  --text-display-xl-size: 4.5rem; /* 72px */
+  --text-display-xl-line-height: 1.1;
+  --text-display-xl-weight: 800;
+
+  --text-display-lg-size: 3.75rem; /* 60px */
+  --text-display-lg-line-height: 1.1;
+  --text-display-lg-weight: 800;
+
+  /* -- Headings -- */
+  --text-h1-size: 3rem; /* 48px */
+  --text-h1-line-height: 1.2;
+  --text-h1-weight: 700;
+
+  --text-h2-size: 2.25rem; /* 36px */
+  --text-h2-line-height: 1.25;
+  --text-h2-weight: 700;
+
+  --text-h3-size: 1.875rem; /* 30px */
+  --text-h3-line-height: 1.3;
+  --text-h3-weight: 600;
+
+  --text-h4-size: 1.5rem; /* 24px */
+  --text-h4-line-height: 1.4;
+  --text-h4-weight: 600;
+
+  --text-h5-size: 1.25rem; /* 20px */
+  --text-h5-line-height: 1.5;
+  --text-h5-weight: 600;
+
+  --text-h6-size: 1.125rem; /* 18px */
+  --text-h6-line-height: 1.5;
+  --text-h6-weight: 600;
+
+  /* -- Paragraphs / Body -- */
+  --text-body-lg-size: 1.125rem; /* 18px */
+  --text-body-lg-line-height: 1.7;
+  --text-body-lg-weight: 400;
+
+  --text-body-md-size: 1rem; /* 16px */
+  --text-body-md-line-height: 1.6;
+  --text-body-md-weight: 400;
+
+  --text-body-sm-size: 0.875rem; /* 14px */
+  --text-body-sm-line-height: 1.5;
+  --text-body-sm-weight: 400;
+
+  /* -- Utility Text -- */
+  --text-caption-size: 0.75rem; /* 12px */
+  --text-caption-line-height: 1.4;
+  --text-caption-weight: 400;
+
+  --text-overline-size: 0.75rem; /* 12px */
+  --text-overline-line-height: 1.4;
+  --text-overline-weight: 600;
+  --text-overline-letter-spacing: 0.1em;
+  --text-overline-text-transform: uppercase;
+}
+  
+:root {
+  /* -- Semantic Colors -- */
+  --background: #fcfcfd;
+  --foreground: #09090b;
+
+  --primary: #6a23f5;
+  --primary-foreground: #f7f9fc;
+
+  --secondary: #f4f4f5;
+  --secondary-foreground: #18181b;
+
+  --accent: #f4f4f5;
+  --accent-foreground: #18181b;
+
+  --muted: #f4f4f5;
+  --muted-foreground: #71717a;
+
+  --destructive: #ef4444;
+  --destructive-foreground: #f7f9fc;
+
+  /* -- Component-specific Colors -- */
+  --card: #ffffff;
+  --card-foreground: #09090b;
+
+  --popover: #ffffff;
+  --popover-foreground: #09090b;
+
+  --border: #e4e4e7;
+  --input: #e4e4e7;
+  --ring: #6a23f5;
 }
 
-@media (prefers-color-scheme: dark) {
-  :root {
-    --background: #0a0a0a;
-    --foreground: #ededed;
-  }
+.dark {
+   /* Dark Mode Colors */
+  --background: #09090b;
+  --foreground: #fcfcfd;
+
+  --primary: #8b5cf6;
+  --primary-foreground: #f7f9fc;
+
+  --secondary: #27272a;
+  --secondary-foreground: #f4f4f5;
+
+  --accent: #3f3f46;
+  --accent-foreground: #f4f4f5;
+
+  --muted: #27272a;
+  --muted-foreground: #a1a1aa;
+
+  --destructive: #7f1d1d;
+  --destructive-foreground: #f7f9fc;
+
+  /* Component-specific */
+  --card: #18181b;
+  --card-foreground: #f4f4f5;
+
+  --popover: #18181b;
+  --popover-foreground: #f4f4f5;
+
+  --border: #3f3f46;
+  --input: #3f3f46;
+  --ring: #8b5cf6;
 }
 
 body {
-  background: var(--background);
-  color: var(--foreground);
-  font-family: Arial, Helvetica, sans-serif;
+  overflow-x: hidden;
+  width: 100%;
+  box-sizing: border-box;
+}
+
+html {
+  scroll-behavior: smooth;
+}
+
+h1,
+h2,
+h3,
+h4,
+h5,
+h6 {
+  font-family: "Noto Sans", sans-serif;
+}
+
+p,
+a,
+button,
+label {
+  font-family: "Inter", sans-serif;
+}
+
+.font-inter {
+  font-family: "Inter", sans-serif;
+}
+
+.font-noto-sans {
+  font-family: "Nato Sans", sans-serif;
 }

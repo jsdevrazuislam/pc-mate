@@ -1,15 +1,21 @@
 import type { Metadata } from "next";
-import { Geist, Geist_Mono } from "next/font/google";
+import { Inter, Noto_Sans } from "next/font/google";
 import "./globals.css";
+import Header from "@/components/header";
+import { ThemeProvider } from 'next-themes'
+import { TranslationProvider } from "@/context/i18n-store";
 
-const geistSans = Geist({
-  variable: "--font-geist-sans",
-  subsets: ["latin"],
+
+const inter = Inter({
+  subsets: ['latin'],
+  variable: '--font-inter',
+  display: 'swap',
 });
 
-const geistMono = Geist_Mono({
-  variable: "--font-geist-mono",
-  subsets: ["latin"],
+const noto_sans = Noto_Sans({
+  subsets: ['latin'],
+  variable: '--font-noto-sans',
+  display: 'swap',
 });
 
 export const metadata: Metadata = {
@@ -25,9 +31,17 @@ export default function RootLayout({
   return (
     <html lang="en">
       <body
-        className={`${geistSans.variable} ${geistMono.variable} antialiased`}
+        className={`${inter.variable} ${noto_sans.variable} antialiased`}
       >
-        {children}
+        <TranslationProvider>
+          <ThemeProvider attribute="class" defaultTheme="system" enableSystem>
+            <Header />
+            {children}
+            <footer className="text-center py-6 text-muted-foreground text-text-body-sm-size">
+              © {new Date().getFullYear()} PCMate. All rights reserved.
+            </footer>
+          </ThemeProvider>
+        </TranslationProvider>
       </body>
     </html>
   );
