@@ -56,7 +56,7 @@ function BuilderForm({
   const form = useForm<z.infer<typeof formSchema>>({
     resolver: zodResolver(formSchema),
     defaultValues: {
-      budget: 1500,
+      budget: 10000,
       currency: "BDT",
       location: "",
       usage: [],
@@ -158,7 +158,7 @@ function BuilderForm({
                     type="button"
                     variant="outline"
                     className={`w-full h-full flex-col ${form.watch("usage").includes(option.id)
-                      ? "border-primary bg-primary/10"
+                      ? "border-primary bg-primary/10 dark:bg-primary/50"
                       : ""
                     }`}
                     onClick={() => {
@@ -166,7 +166,7 @@ function BuilderForm({
                       const newUsage = currentUsage.includes(option.id)
                         ? currentUsage.filter(id => id !== option.id)
                         : [...currentUsage, option.id];
-                      form.setValue("usage", newUsage);
+                      form.setValue("usage", newUsage, { shouldValidate: true });
                     }}
                   >
                     <span className="text-lg">{option.icon}</span>
@@ -221,7 +221,6 @@ function BuilderForm({
                 <FormDescription>
                   {field.value?.length || 0}
                   /200
-                  {t("builder_page.form.notes.limit")}
                 </FormDescription>
                 <FormMessage />
               </FormItem>
