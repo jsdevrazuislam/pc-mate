@@ -1,31 +1,31 @@
-type PCUsage =
-  | "gaming"
-  | "video-editing"
-  | "3d-rendering"
-  | "development"
-  | "office"
-  | "general";
+type PCUsage
+  = | "gaming"
+    | "video-editing"
+    | "3d-rendering"
+    | "development"
+    | "office"
+    | "general";
 
-interface PCBuilderRequest {
+type PCBuilderRequest = {
   budget: number;
   currency: string;
   location: string;
   usages: PCUsage[];
   additionalNotes?: string;
   preference: string;
-  language: string
-}
+  language: string;
+};
 
-interface PCComponent {
+type PCComponent = {
   type: string;
   name: string;
   description: string;
   price: number;
   performanceNote: string;
   valueRating: number;
-}
+};
 
-interface PCBuildRecommendation {
+type PCBuildRecommendation = {
   summary: string;
   totalPrice: number;
   performanceRating: number;
@@ -44,5 +44,5 @@ interface PCBuildRecommendation {
   };
   futureProofing: string;
   notes: string[];
-  error?:string
-}
+  error?: string;
+};

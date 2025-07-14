@@ -5,16 +5,19 @@ PCMate is an intelligent PC configuration tool that leverages AI to suggest opti
 ## Key Features
 
 ### AI-Powered Recommendations
+
 - 🤖 Smart component suggestions using Google Gemini
 - 💡 Build optimization for different use cases (gaming, productivity, etc.)
 - ⚡ Real-time compatibility checking
 
 ### Multi-Language Support
+
 - 🌐 Switch between multiple languages
 - 📦 Comprehensive hardware terminology translations
 - 🔄 Dynamic content switching
 
 ### Core Functionality
+
 - 🛠️ Interactive PC building interface
 - 💰 Budget-based component filtering
 - 📊 Performance estimation
@@ -23,6 +26,7 @@ PCMate is an intelligent PC configuration tool that leverages AI to suggest opti
 ## Technology Stack
 
 ### Frontend
+
 - **Next.js 15** (App Router)
 - **TypeScript**
 - **shadcn/ui** (Beautifully designed components)
@@ -32,10 +36,12 @@ PCMate is an intelligent PC configuration tool that leverages AI to suggest opti
 - **Zod** (Schema validation)
 
 ### Backend
+
 - **Next.js API Routes**
 - **Google Gemini API** (AI recommendations)
 
 ### Development Tools
+
 - **ESLint** + **Prettier** (Code quality)
 - **Husky** (Git hooks)
 - **GitHub Actions** (CI/CD)
@@ -43,6 +49,7 @@ PCMate is an intelligent PC configuration tool that leverages AI to suggest opti
 ## Getting Started
 
 ### Prerequisites
+
 - Node.js 18+
 - Google Gemini API key
 - Git
@@ -53,16 +60,22 @@ PCMate is an intelligent PC configuration tool that leverages AI to suggest opti
    ```bash
    git clone https://github.com/jsdevrazuislam/pc-mate.git
    cd pc-mate
+   ```
 2. **Install dependencies**:
    ```bash
     pnpm install
+   ```
 3. **Set up environment variables**:
    ```bash
     GEMINI_API_KEY=your_api_key_here
+   ```
 4. **Run the development server**:
    ```bash
     pnpm dev
+   ```
+
 # Project Structure
+
 ```bash
 pc-mate/
 ├── app/
@@ -83,3 +96,4 @@ pc-mate/
 │   ├── gemini.ts             # Gemini integration
 ├── types/                    # TypeScript types
 ├── public/                   # Static assets
+```
