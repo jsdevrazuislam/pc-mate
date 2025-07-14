@@ -87,7 +87,7 @@
   --text-overline-letter-spacing: 0.1em;
   --text-overline-text-transform: uppercase;
 }
-  
+
 :root {
   /* -- Semantic Colors -- */
   --background: #fcfcfd;
@@ -121,7 +121,7 @@
 }
 
 .dark {
-   /* Dark Mode Colors */
+  /* Dark Mode Colors */
   --background: #09090b;
   --foreground: #fcfcfd;
 

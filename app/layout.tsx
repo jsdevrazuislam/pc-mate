@@ -1,21 +1,23 @@
 import type { Metadata } from "next";
-import { Inter, Noto_Sans } from "next/font/google";
+
+import { ThemeProvider } from "next-themes";
+
 import "./globals.css";
+import { Inter, Noto_Sans } from "next/font/google";
+
 import Header from "@/components/header";
-import { ThemeProvider } from 'next-themes'
 import { TranslationProvider } from "@/context/i18n-store";
 
-
 const inter = Inter({
-  subsets: ['latin'],
-  variable: '--font-inter',
-  display: 'swap',
+  subsets: ["latin"],
+  variable: "--font-inter",
+  display: "swap",
 });
 
 const noto_sans = Noto_Sans({
-  subsets: ['latin'],
-  variable: '--font-noto-sans',
-  display: 'swap',
+  subsets: ["latin"],
+  variable: "--font-noto-sans",
+  display: "swap",
 });
 
 export const metadata: Metadata = {
@@ -38,7 +40,11 @@ export default function RootLayout({
             <Header />
             {children}
             <footer className="text-center py-6 text-muted-foreground text-text-body-sm-size">
-              © {new Date().getFullYear()} PCMate. All rights reserved.
+              ©
+              {" "}
+              {new Date().getFullYear()}
+              {" "}
+              PCMate. All rights reserved.
             </footer>
           </ThemeProvider>
         </TranslationProvider>
